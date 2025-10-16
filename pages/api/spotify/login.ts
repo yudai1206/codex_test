@@ -36,9 +36,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
     res.setHeader('Cache-Control', 'no-store');
-    res.redirect(authorizeUrl);
+    return res.redirect(307, authorizeUrl);
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Unknown error';
-    res.status(500).json({ error: message });
+    return res.status(500).json({ error: message });
   }
 }

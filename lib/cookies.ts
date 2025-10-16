@@ -33,5 +33,5 @@ export function setCookie(
 }
 
 export function clearCookie(res: NextApiResponse, name: string) {
-  setCookie(res, name, '', { maxAge: 0 });
+  setCookie(res, name, '', { maxAge: 0, expires: new Date(0) });
 }
